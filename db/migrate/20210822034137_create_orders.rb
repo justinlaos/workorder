@@ -3,7 +3,8 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.string :status, default: "created"
       t.string :type
-      t.belongs_to :property, foreign_key: true
+      t.string :description
+      t.belongs_to :property, null: false, foreign_key: true
 
       t.timestamps
     end
