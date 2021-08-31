@@ -3,7 +3,7 @@ class Api::V1::QuotesController < ApplicationController
 
     # GET /quotes
     def index
-        @quotes = Quote.all
+        @quotes = Quote.where(order_id: params[:order_id])
         render json: @quotes
     end
 
@@ -50,7 +50,7 @@ class Api::V1::QuotesController < ApplicationController
 
     def quotes_params
         params.require(:quote).permit(
-            :time_est, :price_est, :order_id
+            :time_est, :price_est, :order_id, :selected
         )
     end
 end

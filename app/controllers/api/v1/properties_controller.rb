@@ -7,6 +7,18 @@ class Api::V1::PropertiesController < ApplicationController
         render json: @properties
     end
 
+    # GET /property/search
+    def search
+        if params[:search_term].blank?
+            @results = []
+        else
+            @results = Elasticsearch::Model
+                .search(params[:search_term])
+                .results.as_json
+        end
+        render json: @results
+    end
+
     # GET /property/:id
     def show
         render json: @property

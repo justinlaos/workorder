@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_08_23_002046) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.string "status", default: "created"
-    t.string "type"
+    t.integer "order_status", default: 0
+    t.integer "order_type", default: 0
     t.string "description"
     t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_002046) do
   end
 
   create_table "quotes", force: :cascade do |t|
+    t.boolean "selected", default: false, null: false
     t.string "time_est"
     t.string "price_est"
     t.bigint "order_id", null: false

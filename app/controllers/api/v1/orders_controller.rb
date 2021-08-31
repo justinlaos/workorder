@@ -3,7 +3,7 @@ class Api::V1::OrdersController < ApplicationController
 
     # GET /orders
     def index
-        @orders = Order.all
+        @orders = Order.where(property_id: params[:property_id])
         render json: @orders
     end
 
@@ -50,7 +50,7 @@ class Api::V1::OrdersController < ApplicationController
 
     def order_params
         params.require(:order).permit(
-            :status, :type, :property_id, :description
+            :order_status, :order_type, :property_id, :description
         )
     end
 end
