@@ -1,13 +1,11 @@
 class Api::V1::PropertiesController < ApplicationController
     before_action :set_property, only: [:show, :update, :destroy]
 
-    # GET /properties
     def index
         @properties = Property.all
         render json: @properties
     end
 
-    # GET /property/search
     def search
         if params[:search_term].blank?
             @results = []
@@ -19,12 +17,10 @@ class Api::V1::PropertiesController < ApplicationController
         render json: @results
     end
 
-    # GET /property/:id
     def show
         render json: @property
     end
 
-    # POST /properties
     def create
         @property = Property.new(property_params)
         if @property.save
@@ -34,7 +30,6 @@ class Api::V1::PropertiesController < ApplicationController
         end
     end
 
-    # PUT /properties/:id
     def update
         if @property
             @property.update(property_params)
@@ -44,7 +39,6 @@ class Api::V1::PropertiesController < ApplicationController
         end
     end
 
-    # DELETE /properties/:id
     def destroy
         if @property
             @property.destroy

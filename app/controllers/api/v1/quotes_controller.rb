@@ -1,18 +1,15 @@
 class Api::V1::QuotesController < ApplicationController
     before_action :set_quote, only: [:show, :update, :destroy]
 
-    # GET /quotes
     def index
         @quotes = Quote.where(order_id: params[:order_id])
         render json: @quotes
     end
 
-    # GET /quote/:id
     def show
         render json: @quote
     end
 
-    # POST /quotes
     def create
         @quote = Quote.new(quotes_params)
         if @quote.save
@@ -22,7 +19,6 @@ class Api::V1::QuotesController < ApplicationController
         end
     end
 
-    # PUT /quotes/:id
     def update
         if @quote
             @quote.update(quotes_params)
@@ -32,7 +28,6 @@ class Api::V1::QuotesController < ApplicationController
         end
     end
 
-    # DELETE /quotes/:id
     def destroy
         if @quote
             @quote.destroy

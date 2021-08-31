@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
     validate :property_id, :description
+    validates :description, presence: true, allow_blank: false
 
     belongs_to :property
     has_many :quotes

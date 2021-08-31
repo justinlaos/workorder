@@ -1,18 +1,15 @@
 class Api::V1::OrdersController < ApplicationController
     before_action :set_order, only: [:show, :update, :destroy]
 
-    # GET /orders
     def index
         @orders = Order.where(property_id: params[:property_id])
         render json: @orders
     end
 
-    # GET /order/:id
     def show
         render json: @order
     end
 
-    # POST /orders
     def create
         @order = Order.new(order_params)
         if @order.save
@@ -22,7 +19,6 @@ class Api::V1::OrdersController < ApplicationController
         end
     end
 
-    # PUT /orders/:id
     def update
         if @order
             @order.update(order_params)
@@ -32,7 +28,6 @@ class Api::V1::OrdersController < ApplicationController
         end
     end
 
-    # DELETE /orders/:id
     def destroy
         if @order
             @order.destroy
