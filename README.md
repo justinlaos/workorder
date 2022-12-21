@@ -1,6 +1,6 @@
 # README
 # Worlorder API
-Welcome to WorkOrder! here you can order any kind of property job that you need done around your house, once you post your order, the thousands of Hearth registered contractors will post quotes for your order allowing you to pick the best offer. Just Search for your address to get started.
+Welcome to WorkOrder! here you can order any kind of property job that you need done around your house, once you post your order, registered contractors will post quotes for your order allowing you to pick the best offer. Just Search for your address to get started.
 
 To run the backend API:
 
